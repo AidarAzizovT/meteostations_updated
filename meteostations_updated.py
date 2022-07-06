@@ -13,11 +13,17 @@ TITLES = ['Наименование метеостанции', 'Влажност
 def to_dict(data):
     result = dict()
     for element in data['data']:
-        for key in element.keys():
-            if key not in ("meteo_id", "source"):
+        for key in element.keys():#Запихнуть в генератор списка 15 - 18
+            if key not in ("meteo_id", "source"):#Вместо условия фильтр
                 result[key] = result.get(key, []) + [element[key]]
     return result
 
+
+def to_dict_updated(data):
+    result = dict()
+    for element in data['data']:
+        for key in filter(lambda x: x not in ("meteo_id", "source"), element.keys()):
+            result[key] = result.get(key, []) + [element[key]]
 
 
 def set_roof(data):
