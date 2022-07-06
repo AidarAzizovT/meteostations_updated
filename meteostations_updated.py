@@ -1,6 +1,7 @@
 from data.kuzaikino_nurlat import kuzaikino_nurlat
 import pandas
 
+''' We convert Dict to Excel documents'''
 TITLES = ['Наименование метеостанции', 'Влажность воздуха',
      'Атмосферное давление', 'Осадки',
      'Интенсивность осадков', 'Порыв ветра', 
